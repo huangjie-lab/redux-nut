@@ -1,11 +1,6 @@
-import {useState} from "react";
-
+import { useState } from "react";
+import ReduxPage from "./pages/ReduxPage";
 
 export default function App(props) {
-  const [count, setCount] = useState(0);
-  return (
-    <div>
-      aa
-    </div>
-  );
+  return <ReduxPage />;
 }
