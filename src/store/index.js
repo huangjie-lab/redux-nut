@@ -1,7 +1,7 @@
-// import { createStore, applyMiddleware } from "redux";
+// import { createStore, applyMiddleware, combineReducers } from "redux";
 // import thunk from "redux-thunk";
 // import logger from "redux-logger";
-import { createStore, applyMiddleware } from "../redux-nut";
+import { createStore, applyMiddleware, combineReducers } from "../redux-nut";
 
 function countReducer(state = 0, action) {
   switch (action.type) {
@@ -14,7 +14,12 @@ function countReducer(state = 0, action) {
   }
 }
 
-const store = createStore(countReducer, applyMiddleware(thunk, logger));
+const store = createStore(
+  combineReducers({
+    count: countReducer,
+  }),
+  applyMiddleware(thunk, logger)
+);
 export default store;
 
 // 这个next其实就是在compose中接受的的dispatch 需要返回一个dispatch给后面的中间件
