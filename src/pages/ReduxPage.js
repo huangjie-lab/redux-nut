@@ -15,7 +15,13 @@ export default class ReduxPage extends Component {
     console.log(store.getState(), "store");
   };
   minus = () => {
-    store.dispatch({ type: "MINUS" });
+    // store.dispatch({ type: "MINUS" });
+    store.dispatch((dispatch, ...args) => {
+      console.log(args, "args"); // getState
+      setTimeout(() => {
+        dispatch({ type: "MINUS" });
+      }, 1000);
+    });
   };
   promiseMinus = () => {
     store.dispatch({ type: "PROMISE_MINUS" });
