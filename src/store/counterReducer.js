@@ -1,4 +1,6 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+
+import createSlice from "../rtk-nut/createSlice";
 
 // 模拟异步操作，比如从服务器获取数据
 export const incrementAsync = createAsyncThunk(
